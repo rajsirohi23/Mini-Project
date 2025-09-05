@@ -3,9 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sehat Setu - Your Digital Healthcare Companion</title>
+    <meta name="description" content="Sehat Setu - Advanced healthcare platform with AI chatbot, patient records management, and doctor consultation services">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
+    <!-- Navigation Header -->
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo-section">
+                    <img src="logo.avif" alt="Sehat Setu Logo" class="logo">
+                    <h1 class="brand-name">Sehat Setu</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <button class="btn btn-outline" id="loginBtn">Login</button>
+                    <button class="btn btn-primary" id="signupBtn">Get Started</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2 class="hero-title">Your Digital Healthcare Companion</h2>
+                    <p class="hero-description">
+                        Experience the future of healthcare with our AI-powered platform. Get instant medical assistance, 
+                        manage patient records, and connect with healthcare professionals seamlessly.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn btn-large btn-primary" id="startChatBtn">Start Health Chat</button>
+                        <button class="btn btn-large btn-outline" id="learnMoreBtn">Learn More</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="healthcare-hero.png" alt="Digital Healthcare Platform" class="hero-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h3 class="section-title">Comprehensive Healthcare Solutions</h3>
+                <p class="section-subtitle">Everything you need for modern healthcare management</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            <path d="M13 8H7"/>
+                            <path d="M17 12H7"/>
+                        </svg>
+                    </div>
+                    <h4 class="feature-title">AI Health Chatbot</h4>
+                    <p class="feature-description">
+                        Get instant medical guidance based on your symptoms. Our AI analyzes your condition 
+                        and provides appropriate medicine suggestions.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10,9 9,9 8,9"/>
+                        </svg>
+                    </div>
+                    <h4 class="feature-title">Digital Medical Records</h4>
+                    <p class="feature-description">
+                        Secure storage of patient history with unique ID system. Easy access to past diagnoses, 
+                        treatments, and medical reports.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h4 class="feature-title">Doctor Dashboard</h4>
+                    <p class="feature-description">
+                        Comprehensive patient management system for healthcare professionals. 
+                        View, update, and track patient progress efficiently.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21,15 16,10 5,21"/>
+                        </svg>
+                    </div>
+                    <h4 class="feature-title">Report Upload</h4>
+                    <p class="feature-description">
+                        Easy upload and management of medical reports, test results, and prescriptions. 
+                        All documents securely stored and organized.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="4" width="20" height="16" rx="2"/>
+                            <path d="M7 15h0M12 15h0M17 15h0M7 11h0M12 11h0M17 11h0M7 7h0M12 7h0M17 7h0"/>
+                        </svg>
+                    </div>
+                    <h4 class="feature-title">Smart Analytics</h4>
+                    <p class="feature-description">
+                        Track health trends, medication adherence, and treatment progress with 
+                        detailed analytics and insights.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <path d="M9 12l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h4 class="feature-title">Secure & Private</h4>
+                    <p class="feature-description">
+                        Bank-level security with end-to-end encryption. Your medical data is protected 
+                        with the highest security standards.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Tips Section -->
+    <section class="health-tips-section">
+        <div class="container">
+            <div class="section-header">
+                <h3 class="section-title">Health & Wellness Tips</h3>
+                <p class="section-subtitle">Stay healthy with our expert recommendations</p>
+            </div>
+            <div class="tips-grid">
+                <article class="tip-card">
+                    <div class="tip-icon">💧</div>
+                    <h4 class="tip-title">Stay Hydrated</h4>
+                    <p class="tip-content">Drink at least 8-10 glasses of water daily to maintain optimal body function and prevent dehydration.</p>
+                </article>
+                <article class="tip-card">
+                    <div class="tip-icon">🏃‍♂️</div>
+                    <h4 class="tip-title">Regular Exercise</h4>
+                    <p class="tip-content">Engage in 30 minutes of moderate physical activity daily to boost immunity and cardiovascular health.</p>
+                </article>
+                <article class="tip-card">
+                    <div class="tip-icon">😴</div>
+                    <h4 class="tip-title">Quality Sleep</h4>
+                    <p class="tip-content">Aim for 7-9 hours of quality sleep to allow your body to repair and rejuvenate effectively.</p>
+                </article>
+                <article class="tip-card">
+                    <div class="tip-icon">🥗</div>
+                    <h4 class="tip-title">Balanced Diet</h4>
+                    <p class="tip-content">Include fruits, vegetables, whole grains, and lean proteins in your daily meals for optimal nutrition.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Section -->
+    <section class="emergency-section">
+        <div class="container">
+            <div class="emergency-card">
+                <div class="emergency-icon">🚨</div>
+                <div class="emergency-content">
+                    <h3 class="emergency-title">Medical Emergency?</h3>
+                    <p class="emergency-text">For life-threatening emergencies, call emergency services immediately</p>
+                    <div class="emergency-numbers">
+                        <span class="emergency-number">108 (Ambulance)</span>
+                        <span class="emergency-number">102 (Medical Helpline)</span>
+                    </div>
+                </div>
+                <button class="btn btn-emergency">Emergency Chat</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget" id="chatbotWidget">
+        <div class="chatbot-header">
+            <div class="chatbot-avatar">🤖</div>
+            <div class="chatbot-info">
+                <h4 class="chatbot-title">Health Assistant</h4>
+                <span class="chatbot-status">Online</span>
+            </div>
+            <button class="chatbot-close" id="closeChatbot">×</button>
+        </div>
+        <div class="chatbot-body">
+            <div class="welcome-message">
+                <div class="bot-message">
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-content">
+                        <p>Hello! I'm your health assistant. To provide personalized care, please log in to your account first.</p>
+                        <div class="login-prompt">
+                            <button class="btn btn-small btn-primary" id="chatLoginBtn">Login to Continue</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" placeholder="Type your health concern..." class="chat-input" disabled>
+            <button class="send-button" disabled>➤</button>
+        </div>
+    </div>
+    <button class="chatbot-toggle" id="chatbotToggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+    </button>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3 class="brand-name">Sehat Setu</h3>
+                        <p class="footer-tagline">Your Digital Healthcare Companion</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">Instagram</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">AI Health Chat</a></li>
+                        <li><a href="#">Doctor Consultation</a></li>
+                        <li><a href="#">Medical Records</a></li>
+                        <li><a href="#">Health Analytics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Contact Info</h4>
+                    <div class="contact-info">
+                        <p class="contact-item">📧 support@sehatsetu.com</p>
+                        <p class="contact-item">📞 +91-XXXX-XXXXXX</p>
+                        <p class="contact-item">📍 Healthcare Innovation Hub, India</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">© 2024 Sehat Setu. All rights reserved.</p>
+                <p class="disclaimer">This platform is for informational purposes only and does not replace professional medical advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
 </body>
 </html>

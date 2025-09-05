@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard - Sehat Setu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body">
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="logo.avif" alt="Sehat Setu Logo" class="logo">
+                <h1 class="brand-name">Sehat Setu</h1>
+            </div>
+            <nav class="dashboard-nav">
+                <a href="#overview" class="nav-item active">Overview</a>
+                <a href="#chat" class="nav-item">Health Chat</a>
+                <a href="#records" class="nav-item">Medical Records</a>
+                <a href="#reports" class="nav-item">Reports</a>
+                <a href="#profile" class="nav-item">Profile</a>
+            </nav>
+            <div class="user-menu">
+                <span class="user-name" id="welcomeMessage">Welcome!</span>
+                <button class="btn btn-outline btn-small" id="logoutBtn">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <!-- Overview Section -->
+        <section id="overview" class="dashboard-section active">
+            <div class="section-header">
+                <h2>Dashboard Overview</h2>
+                <p>Your health information at a glance</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">👤</div>
+                    <div class="stat-info">
+                        <h3>Patient ID</h3>
+                        <p id="patientId">P001</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💬</div>
+                    <div class="stat-info">
+                        <h3>Chat Sessions</h3>
+                        <p>12 this month</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📋</div>
+                    <div class="stat-info">
+                        <h3>Medical Reports</h3>
+                        <p>5 documents</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📅</div>
+                    <div class="stat-info">
+                        <h3>Last Visit</h3>
+                        <p id="lastVisit">2024-01-15</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Health Chart -->
+            <div class="chart-container">
+                <h3>Health Metrics</h3>
+                <div id="healthChart" class="chart-placeholder">
+                    <div class="metric-item">
+                        <span class="metric-label">Weight:</span>
+                        <span class="metric-value">70 kg</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Blood Pressure:</span>
+                        <span class="metric-value">120/80 mmHg</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Heart Rate:</span>
+                        <span class="metric-value">72 bpm</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h3>Quick Actions</h3>
+                <div class="actions-grid">
+                    <button class="action-btn" onclick="switchSection('chat')">
+                        <span class="action-icon">💬</span>
+                        Start Health Chat
+                    </button>
+                    <button class="action-btn" onclick="document.getElementById('fileUpload').click()">
+                        <span class="action-icon">📄</span>
+                        Upload Report
+                    </button>
+                    <button class="action-btn" onclick="switchSection('records')">
+                        <span class="action-icon">📋</span>
+                        View Records
+                    </button>
+                    <button class="action-btn" onclick="switchSection('profile')">
+                        <span class="action-icon">⚙️</span>
+                        Update Profile
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Health Chat Section -->
+        <section id="chat" class="dashboard-section">
+            <div class="section-header">
+                <h2>AI Health Assistant</h2>
+                <p>Get instant medical guidance for your health concerns</p>
+            </div>
+            
+            <div class="chat-container">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="bot-message">
+                        <div class="message-avatar">🤖</div>
+                        <div class="message-content">
+                            <p>Hello! I'm your AI health assistant. How can I help you today? Please describe your symptoms or health concerns.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="chat-form" id="chatForm">
+                    <input type="text" id="chatInput" placeholder="Type your symptoms or health concerns..." class="chat-input" required>
+                    <button type="submit" class="send-button">Send</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Medical Records Section -->
+        <section id="records" class="dashboard-section">
+            <div class="section-header">
+                <h2>Medical Records</h2>
+                <p>Your complete medical history</p>
+            </div>
+            
+            <div class="records-container">
+                <div class="patient-info">
+                    <h3>Patient Information</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Name:</label>
+                            <span id="patientName">Loading...</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Age:</label>
+                            <span id="patientAge">Loading...</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Gender:</label>
+                            <span id="patientGender">Loading...</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Blood Group:</label>
+                            <span>O+</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="medical-history">
+                    <h3>Recent Medical History</h3>
+                    <div class="history-list">
+                        <div class="history-item">
+                            <div class="history-date">2024-01-15</div>
+                            <div class="history-details">
+                                <h4>General Checkup</h4>
+                                <p>Routine health examination. All vitals normal.</p>
+                            </div>
+                        </div>
+                        <div class="history-item">
+                            <div class="history-date">2024-01-10</div>
+                            <div class="history-details">
+                                <h4>Fever Treatment</h4>
+                                <p>Prescribed paracetamol for viral fever. Recovered completely.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reports Section -->
+        <section id="reports" class="dashboard-section">
+            <div class="section-header">
+                <h2>Medical Reports</h2>
+                <p>Upload and manage your medical documents</p>
+            </div>
+            
+            <div class="upload-area">
+                <input type="file" id="fileUpload" multiple accept=".pdf,.jpg,.jpeg,.png" style="display: none;">
+                <div class="upload-box" onclick="document.getElementById('fileUpload').click()">
+                    <div class="upload-icon">📁</div>
+                    <h3>Upload Medical Reports</h3>
+                    <p>Click here to upload your medical reports, test results, or prescriptions</p>
+                    <button type="button" class="btn btn-primary" id="uploadBtn">Choose Files</button>
+                </div>
+            </div>
+            
+            <div class="files-list">
+                <h3>Your Documents</h3>
+                <div id="fileList" class="file-list">
+                    <div class="file-item">
+                        <div class="file-info">
+                            <span class="file-name">Blood_Test_Report.pdf</span>
+                            <span class="file-date">Uploaded: 2024-01-15</span>
+                        </div>
+                        <div class="file-actions">
+                            <button class="btn btn-small">View</button>
+                            <button class="btn btn-small btn-outline">Download</button>
+                        </div>
+                    </div>
+                    <div class="file-item">
+                        <div class="file-info">
+                            <span class="file-name">X-Ray_Chest.jpg</span>
+                            <span class="file-date">Uploaded: 2024-01-10</span>
+                        </div>
+                        <div class="file-actions">
+                            <button class="btn btn-small">View</button>
+                            <button class="btn btn-small btn-outline">Download</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile" class="dashboard-section">
+            <div class="section-header">
+                <h2>Profile Settings</h2>
+                <p>Update your personal information</p>
+            </div>
+            
+            <div class="profile-container">
+                <form id="profileForm" class="profile-form">
+                    <div class="form-group">
+                        <label for="profileName">Full Name</label>
+                        <input type="text" id="profileName" class="form-input" value="">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="profileEmail">Email Address</label>
+                        <input type="email" id="profileEmail" class="form-input" value="">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="profilePhone">Phone Number</label>
+                        <input type="tel" id="profilePhone" class="form-input" value="">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="profileAge">Age</label>
+                        <input type="number" id="profileAge" class="form-input" value="28">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="profileGender">Gender</label>
+                        <select id="profileGender" class="form-input">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="profileBloodGroup">Blood Group</label>
+                        <select id="profileBloodGroup" class="form-input">
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+" selected>O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Update Profile</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="patientDoctor.js"></script>
+    <script>
+
+
+        // Add this to your patient dashboard JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!checkAuthStatus()) {
+            // Clear any invalid session data
+                localStorage.clear();
+                window.location.href = 'auth.html';
+            }
+        });
+        // Navigation between sections
+        function switchSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.dashboard-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all nav items
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to corresponding nav item
+            document.querySelector(`[href="#${sectionId}"]`).classList.add('active');
+        }
+        
+        // Add click event listeners to navigation items
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('href').substring(1);
+                    switchSection(sectionId);
+                });
+            });
+            
+            // Load user profile data
+            const userName = localStorage.getItem('userName');
+            const userEmail = localStorage.getItem('userEmail');
+            const userPhone = localStorage.getItem('userPhone');
+            
+            if (userName) document.getElementById('profileName').value = userName;
+            if (userEmail) document.getElementById('profileEmail').value = userEmail;
+            if (userPhone) document.getElementById('profilePhone').value = userPhone;
+        });
+    </script>
+    <!-- <script src="dashboardAuth.js"></script> -->
+</body>
+</html>

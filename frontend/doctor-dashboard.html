@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard - Sehat Setu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body">
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="logo.avif" alt="Sehat Setu Logo" class="logo">
+                <h1 class="brand-name">Sehat Setu</h1>
+            </div>
+            <nav class="dashboard-nav">
+                <a href="#overview" class="nav-item active">Overview</a>
+                <a href="#patients" class="nav-item">Patients</a>
+                <a href="#appointments" class="nav-item">Appointments</a>
+                <a href="#analytics" class="nav-item">Analytics</a>
+                <a href="#profile" class="nav-item">Profile</a>
+            </nav>
+            <div class="user-menu">
+                <span class="user-name" id="welcomeMessage">Welcome, Doctor!</span>
+                <button class="btn btn-outline btn-small" id="logoutBtn">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <!-- Overview Section -->
+        <section id="overview" class="dashboard-section active">
+            <div class="section-header">
+                <h2>Doctor Dashboard</h2>
+                <p>Manage your patients and appointments</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">👨‍⚕️</div>
+                    <div class="stat-info">
+                        <h3>Doctor ID</h3>
+                        <p id="doctorId">D001</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-info">
+                        <h3>Total Patients</h3>
+                        <p>142</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📅</div>
+                    <div class="stat-info">
+                        <h3>Today's Appointments</h3>
+                        <p>8</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-info">
+                        <h3>Rating</h3>
+                        <p>4.8/5</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="quick-stats">
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <span class="stat-label">Patients Seen Today:</span>
+                        <span class="stat-number">5</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Pending Consultations:</span>
+                        <span class="stat-number">3</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">This Week's Appointments:</span>
+                        <span class="stat-number">32</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Today's Schedule -->
+            <div class="schedule-container">
+                <h3>Today's Schedule</h3>
+                <div class="schedule-list">
+                    <div class="schedule-item">
+                        <div class="schedule-time">09:00 AM</div>
+                        <div class="schedule-details">
+                            <h4>John Doe (P001)</h4>
+                            <p>General Consultation</p>
+                        </div>
+                        <div class="schedule-status status-upcoming">Upcoming</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">10:30 AM</div>
+                        <div class="schedule-details">
+                            <h4>Jane Smith (P002)</h4>
+                            <p>Follow-up Visit</p>
+                        </div>
+                        <div class="schedule-status status-completed">Completed</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">02:00 PM</div>
+                        <div class="schedule-details">
+                            <h4>Mike Johnson (P003)</h4>
+                            <p>Health Checkup</p>
+                        </div>
+                        <div class="schedule-status status-upcoming">Upcoming</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Patients Section -->
+        <section id="patients" class="dashboard-section">
+            <div class="section-header">
+                <h2>Patient Management</h2>
+                <p>View and manage your patients</p>
+            </div>
+            
+            <div class="patients-controls">
+                <div class="search-box">
+                    <input type="text" id="patientSearch" placeholder="Search patients by name or ID..." class="search-input">
+                    <button class="search-btn">🔍</button>
+                </div>
+                <div class="filter-options">
+                    <select id="statusFilter" class="filter-select">
+                        <option value="">All Patients</option>
+                        <option value="active">Active</option>
+                        <option value="follow-up">Follow-up</option>
+                        <option value="recovered">Recovered</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="patients-list" id="patientsList">
+                <!-- Patients will be loaded here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Appointments Section -->
+        <section id="appointments" class="dashboard-section">
+            <div class="section-header">
+                <h2>Appointments</h2>
+                <p>Manage your appointment schedule</p>
+            </div>
+            
+            <div class="appointments-container">
+                <div class="calendar-section">
+                    <h3>Appointment Calendar</h3>
+                    <div class="calendar-placeholder">
+                        <div class="calendar-month">January 2024</div>
+                        <div class="calendar-grid">
+                            <div class="calendar-day">1</div>
+                            <div class="calendar-day">2</div>
+                            <div class="calendar-day">3</div>
+                            <div class="calendar-day today">4</div>
+                            <div class="calendar-day">5</div>
+                            <div class="calendar-day">6</div>
+                            <div class="calendar-day">7</div>
+                        </div>
+                        <div class="appointment-count">8 appointments today</div>
+                    </div>
+                </div>
+                
+                <div class="appointments-list">
+                    <h3>Upcoming Appointments</h3>
+                    <div class="appointment-item">
+                        <div class="appointment-time">
+                            <div class="time">09:00 AM</div>
+                            <div class="date">Today</div>
+                        </div>
+                        <div class="appointment-patient">
+                            <h4>John Doe</h4>
+                            <p>General Consultation</p>
+                        </div>
+                        <div class="appointment-actions">
+                            <button class="btn btn-small btn-primary">Start</button>
+                            <button class="btn btn-small btn-outline">Reschedule</button>
+                        </div>
+                    </div>
+                    
+                    <div class="appointment-item">
+                        <div class="appointment-time">
+                            <div class="time">02:00 PM</div>
+                            <div class="date">Today</div>
+                        </div>
+                        <div class="appointment-patient">
+                            <h4>Sarah Wilson</h4>
+                            <p>Follow-up Visit</p>
+                        </div>
+                        <div class="appointment-actions">
+                            <button class="btn btn-small btn-primary">Start</button>
+                            <button class="btn btn-small btn-outline">Reschedule</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analytics Section -->
+        <section id="analytics" class="dashboard-section">
+            <div class="section-header">
+                <h2>Analytics & Reports</h2>
+                <p>Track your practice performance</p>
+            </div>
+            
+            <div class="analytics-grid">
+                <div class="analytics-card">
+                    <h3>Patient Satisfaction</h3>
+                    <div class="metric-large">4.8/5</div>
+                    <p class="metric-trend">↗ +0.2 this month</p>
+                </div>
+                
+                <div class="analytics-card">
+                    <h3>Consultation Success Rate</h3>
+                    <div class="metric-large">96%</div>
+                    <p class="metric-trend">↗ +2% this month</p>
+                </div>
+                
+                <div class="analytics-card">
+                    <h3>Average Wait Time</h3>
+                    <div class="metric-large">12 min</div>
+                    <p class="metric-trend">↘ -3 min this month</p>
+                </div>
+                
+                <div class="analytics-card">
+                    <h3>Monthly Revenue</h3>
+                    <div class="metric-large">₹85,000</div>
+                    <p class="metric-trend">↗ +15% this month</p>
+                </div>
+            </div>
+            
+            <div class="chart-section">
+                <h3>Monthly Consultation Trends</h3>
+                <div class="chart-placeholder">
+                    <div class="chart-bar" style="height: 60%;">Jan</div>
+                    <div class="chart-bar" style="height: 75%;">Feb</div>
+                    <div class="chart-bar" style="height: 85%;">Mar</div>
+                    <div class="chart-bar" style="height: 90%;">Apr</div>
+                    <div class="chart-bar" style="height: 95%;">May</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile" class="dashboard-section">
+            <div class="section-header">
+                <h2>Doctor Profile</h2>
+                <p>Manage your professional information</p>
+            </div>
+            
+            <div class="profile-container">
+                <form id="profileForm" class="profile-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="doctorName">Full Name</label>
+                            <input type="text" id="doctorName" class="form-input" value="">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="doctorEmail">Email Address</label>
+                            <input type="email" id="doctorEmail" class="form-input" value="">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="doctorPhone">Phone Number</label>
+                            <input type="tel" id="doctorPhone" class="form-input" value="">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="doctorSpecialty">Specialty</label>
+                            <select id="doctorSpecialty" class="form-input">
+                                <option value="general">General Practice</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="dermatology">Dermatology</option>
+                                <option value="neurology">Neurology</option>
+                                <option value="orthopedics">Orthopedics</option>
+                                <option value="pediatrics">Pediatrics</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="doctorExperience">Years of Experience</label>
+                            <input type="number" id="doctorExperience" class="form-input" value="10">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="doctorLicense">License Number</label>
+                            <input type="text" id="doctorLicense" class="form-input" value="MED123456">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="doctorBio">Bio</label>
+                        <textarea id="doctorBio" class="form-input" rows="4" placeholder="Brief description about your practice and expertise..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Update Profile</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="patientDoctor.js"></script>
+    <script>
+        // Navigation between sections
+        function switchSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.dashboard-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all nav items
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to corresponding nav item
+            document.querySelector(`[href="#${sectionId}"]`).classList.add('active');
+        }
+        
+        // Add click event listeners to navigation items
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('href').substring(1);
+                    switchSection(sectionId);
+                });
+            });
+            
+            // Load doctor profile data
+            const doctorName = localStorage.getItem('userName');
+            const doctorEmail = localStorage.getItem('userEmail');
+            const doctorPhone = localStorage.getItem('userPhone');
+            
+            if (doctorName) document.getElementById('doctorName').value = doctorName;
+            if (doctorEmail) document.getElementById('doctorEmail').value = doctorEmail;
+            if (doctorPhone) document.getElementById('doctorPhone').value = doctorPhone;
+        });
+    </script>
+    <!-- <script src="dashboardAuth.js"></script> -->
+</body>
+</html>
